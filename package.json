@@ -1,0 +1,21 @@
+{
+  "name": "parallel-universe",
+  "version": "1.0.0",
+  "description": "find another you in one of the multiverses",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Express",
+    "RestAPI",
+    "MongoDB",
+    "Mongoose",
+    "React",
+    "Redux",
+    "Parallel",
+    "Universe"
+  ],
+  "author": "maniskasyap",
+  "license": "MIT"
+}
