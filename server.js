@@ -31,6 +31,8 @@ app.get("/", (req, res) => {
   res.json({ message: "welcome to parallel universe." });
 });
 
+require("./app/routes/cool-cat.routes.js")(app);
+
 app.listen(PORT, () => {
   console.log(`express server is listening on port ${PORT}`);
 });
