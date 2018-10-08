@@ -24,7 +24,17 @@ exports.create = (req, res) => {
       });
     });
 };
-exports.getAll = (req, res) => {};
+exports.getAll = (req, res) => {
+  CoolCat.find()
+    .then(cats => {
+      res.send(cats);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: err.message || "error fetching cats..."
+      });
+    });
+};
 exports.getOne = (req, res) => {};
 exports.update = (req, res) => {};
 exports.remove = (req, res) => {};
