@@ -35,6 +35,21 @@ exports.getAll = (req, res) => {
       });
     });
 };
-exports.getOne = (req, res) => {};
+exports.getOne = (req, res) => {
+  CoolCat.findById(req.params.catId)
+    .then(cat => {
+      if (!cat) {
+        return res.status(404).send({
+          message: "No cat with id " + req.params.catId + " found..."
+        });
+      }
+      res.send(cat);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: err.message || "Error finding cat with id " + req.params.catId
+      });
+    });
+};
 exports.update = (req, res) => {};
 exports.remove = (req, res) => {};
