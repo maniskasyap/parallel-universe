@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 mongoose.Promise = global.Promise;
+mongoose.set("useFindAndModify", false);
 
 mongoose
   .connect(
