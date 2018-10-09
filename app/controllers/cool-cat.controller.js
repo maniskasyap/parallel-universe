@@ -68,6 +68,7 @@ exports.update = (req, res) => {
           message: "No cat found with id " + req.params.catId
         });
       }
+      debugger;
       res.send(cat);
     })
     .catch(err => {
