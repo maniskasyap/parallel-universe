@@ -52,7 +52,11 @@ exports.getOne = (req, res) => {
     });
 };
 exports.update = (req, res) => {
-  debugger;
+  if (!req.body.name) {
+    return res.status(400).send({
+      message: "Cat name can not be empty"
+    });
+  }
   CoolCat.findByIdAndUpdate(
     req.params.catId,
     {
@@ -68,7 +72,6 @@ exports.update = (req, res) => {
           message: "No cat found with id " + req.params.catId
         });
       }
-      debugger;
       res.send(cat);
     })
     .catch(err => {
