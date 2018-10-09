@@ -80,4 +80,22 @@ exports.update = (req, res) => {
       });
     });
 };
-exports.remove = (req, res) => {};
+exports.remove = (req, res) => {
+  CoolCat.findByIdAndRemove(req.params.catId)
+    .then(cat => {
+      if (!cat) {
+        return res.status(400).send({
+          message: "Cat not found with id: " + req.params.catId
+        });
+      }
+      res.send({
+        message: "Cat deleted successfuly..."
+      });
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Could not delete cat with id: " + req.params.catId
+      });
+    });
+};
