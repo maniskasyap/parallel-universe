@@ -1,14 +1,5 @@
 [
   {
-    "_id": "5bba5a1d4585085215ea6954",
-    "name": "bronzo",
-    "style": "curly",
-    "avatar": "https://purr.objects-us-west-1.dream.io/i/lotta.png",
-    "createdAt": "2018-10-07T19:10:21.244Z",
-    "updatedAt": "2018-10-09T17:10:38.559Z",
-    "__v": 0
-  },
-  {
     "_id": "5bbbad44328758402c32c8b9",
     "name": "poopoo",
     "style": "pumpkinell",
@@ -24,6 +15,15 @@
     "avatar": "https://purr.objects-us-west-1.dream.io/i/pGJHOjJ.jpg",
     "createdAt": "2018-10-09T17:08:48.506Z",
     "updatedAt": "2018-10-09T17:08:48.506Z",
+    "__v": 0
+  },
+  {
+    "_id": "5bc08f2363ed0b6270bf3757",
+    "name": "Brownie",
+    "style": "dahi dahi dahi",
+    "avatar": "https://purr.objects-us-west-1.dream.io/i/RClk9.jpg",
+    "createdAt": "2018-10-12T12:10:11.813Z",
+    "updatedAt": "2018-10-12T12:10:11.813Z",
     "__v": 0
   }
 ]
