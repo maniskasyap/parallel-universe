@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import { Button, Icon, Card, Row, Col } from "antd";
 import "./cool-cats.css";
 
@@ -7,8 +8,11 @@ class CoolCats extends Component {
   constructor() {
     super();
     this.state = {
-      cats: []
+      cats: [],
+      catId: null
     };
+
+    this.createNewCat = this.createNewCat.bind(this);
   }
 
   componentDidMount() {
@@ -23,11 +27,20 @@ class CoolCats extends Component {
         )
       );
   }
+
+  createNewCat() {
+    this.setState({
+      catId: "new"
+    });
+  }
   render() {
+    if (this.state.catId) {
+      return <Redirect push to="/cats/new" />;
+    }
     return (
       <div>
         <div>
-          <Button size="large">
+          <Button size="large" onClick={this.createNewCat}>
             Create New
             <Icon type="plus-circle" />
           </Button>
@@ -35,7 +48,7 @@ class CoolCats extends Component {
         <h2>Cool Cats</h2>
         <Row gutter={16}>
           {this.state.cats.map(cat => (
-            <Col className="gutter-row" span={6}>
+            <Col key={cat._id} className="gutter-row" span={6}>
               <Card
                 cover={<img alt={cat.name} src={cat.avatar} />}
                 actions={[<Button icon="edit" />]}

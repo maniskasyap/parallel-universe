@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Link, Route } from "react-router-dom";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Layout, Menu, Breadcrumb, Icon } from "antd";
+import { Layout, Menu, Icon } from "antd";
 import "./App.css";
 import CoolCats from "./components/cool-cats/cool-cats";
+import FormCat from "./components/form-cat/form-cat";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Content, Sider } = Layout;
 class App extends Component {
   render() {
     return (
@@ -40,8 +41,15 @@ class App extends Component {
             </Menu>
           </Sider>
           <Content style={{ margin: "0 16px" }}>
-            <div style={{ padding: 24, background: "#fff", minHeight: 360 }}>
+            <div
+              style={{
+                padding: "20px 20px 0 20px",
+                background: "#fff",
+                minHeight: "400px"
+              }}
+            >
               <Route path="/cats" component={CoolCats} />
+              <Route path="/cats/:catId" component={FormCat} />
             </div>
           </Content>
         </Layout>
