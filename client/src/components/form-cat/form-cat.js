@@ -20,12 +20,9 @@ class FormCat extends Component {
     fetch("/cats/" + catId)
       .then(res => res.json())
       .then(data => {
-        debugger;
         this.setState({ cat: data });
       })
-      .catch(err => {
-        debugger;
-      });
+      .catch(err => {});
   }
 
   handleInput = e => {
@@ -45,8 +42,10 @@ class FormCat extends Component {
   saveCat = e => {
     e.preventDefault();
     const cat = this.state.cat;
-    fetch("/cats", {
-      method: "POST",
+    const method = cat._id ? "PUT" : "POST";
+    const url = cat._id ? "/cats/" + cat._id : "/cats";
+    fetch(url, {
+      method: method,
       headers: {
         "Content-Type": "application/json"
       },
@@ -75,6 +74,7 @@ class FormCat extends Component {
             <Input
               name="name"
               placeholder="Enter a cool name for your cat"
+              value={this.state.cat ? this.state.cat.name : ""}
               onChange={this.handleInput}
             />
           </FormItem>
@@ -82,6 +82,7 @@ class FormCat extends Component {
             <Input
               name="style"
               placeholder="What style is your cat"
+              value={this.state.cat ? this.state.cat.style : ""}
               onChange={this.handleInput}
             />
           </FormItem>
@@ -89,6 +90,7 @@ class FormCat extends Component {
             <Input
               name="avatar"
               placeholder="Avatar url"
+              value={this.state.cat ? this.state.cat.avatar : ""}
               onChange={this.handleInput}
             />
           </FormItem>
