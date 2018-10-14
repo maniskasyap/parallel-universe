@@ -14,6 +14,7 @@ class CoolCats extends Component {
     };
 
     this.createNewCat = this.createNewCat.bind(this);
+    this.edit = this.edit.bind(this);
     this.delete = this.delete.bind(this);
   }
 
@@ -29,6 +30,12 @@ class CoolCats extends Component {
         )
       );
   }
+
+  edit = cat => {
+    this.setState({
+      catId: cat._id
+    });
+  };
 
   delete = cat => {
     confirm({
@@ -58,7 +65,7 @@ class CoolCats extends Component {
   }
   render() {
     if (this.state.catId) {
-      return <Redirect push to="/cats/new" />;
+      return <Redirect push to={"/cats/" + this.state.catId} />;
     }
     return (
       <div>
@@ -75,7 +82,7 @@ class CoolCats extends Component {
               <Card
                 cover={<img alt={cat.name} src={cat.avatar} />}
                 actions={[
-                  <Button icon="edit" />,
+                  <Button icon="edit" onClick={() => this.edit(cat)} />,
                   <Button icon="delete" onClick={() => this.delete(cat)} />
                 ]}
               >

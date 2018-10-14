@@ -15,7 +15,18 @@ class FormCat extends Component {
     this.saveCat = this.saveCat.bind(this);
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    const catId = this.props.match.params.catId;
+    fetch("/cats/" + catId)
+      .then(res => res.json())
+      .then(data => {
+        debugger;
+        this.setState({ cat: data });
+      })
+      .catch(err => {
+        debugger;
+      });
+  }
 
   handleInput = e => {
     const target = e.target;
