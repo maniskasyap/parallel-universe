@@ -32,7 +32,6 @@ class FormCat extends Component {
   };
 
   saveCat = e => {
-    debugger;
     e.preventDefault();
     const cat = this.state.cat;
     fetch("/cats", {

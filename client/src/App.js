@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Route } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Layout, Menu, Icon } from "antd";
 import "./App.css";
@@ -48,8 +48,10 @@ class App extends Component {
                 minHeight: "400px"
               }}
             >
-              <Route path="/cats" component={CoolCats} />
-              <Route path="/cats/:catId" component={FormCat} />
+              <Switch>
+                <Route path="/cats/:catId" component={FormCat} />
+                <Route path="/cats" component={CoolCats} />
+              </Switch>
             </div>
           </Content>
         </Layout>
