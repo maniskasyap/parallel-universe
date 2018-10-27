@@ -1,3 +1,4 @@
+const jwt = require("jsonwebtoken");
 const CoolCat = require("../models/cool-cat.model.js");
 
 exports.create = (req, res) => {
@@ -25,15 +26,28 @@ exports.create = (req, res) => {
     });
 };
 exports.getAll = (req, res) => {
-  CoolCat.find()
-    .then(cats => {
-      res.send(cats);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message: err.message || "error fetching cats..."
-      });
+  const token = req.header("auth-token");
+  if (!token) {
+    return res.status(401).send({
+      message: "Unauthorized..."
     });
+  }
+  jwt.verify(token, "shhhhh", (err, decoded) => {
+    if (err) {
+      return res.status(401).send({
+        message: err.message
+      });
+    }
+    CoolCat.find()
+      .then(cats => {
+        res.send(cats);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message: err.message || "error fetching cats..."
+        });
+      });
+  });
 };
 exports.getOne = (req, res) => {
   CoolCat.findById(req.params.catId)

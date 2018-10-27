@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/auth.model");
 
 exports.login = (req, res) => {
-  debugger;
   User.findOne({
     userName: req.body.userName
   })
