@@ -5,7 +5,7 @@ import { Layout, Menu, Icon } from "antd";
 import "./App.css";
 import CoolCats from "./components/cool-cats/cool-cats";
 import FormCat from "./components/form-cat/form-cat";
-import DataChart from "./components/plots/data-chart";
+// import DataChart from "./components/plots/data-chart";
 
 const { Content, Sider } = Layout;
 class App extends Component {
@@ -42,9 +42,9 @@ class App extends Component {
             </Menu>
           </Sider>
           <Content style={{ margin: "0 16px" }}>
-            <div>
+            {/* <div>
               <DataChart />
-            </div>
+            </div> */}
             <div
               style={{
                 padding: "20px 20px 0 20px",
