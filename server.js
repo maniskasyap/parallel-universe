@@ -33,6 +33,7 @@ app.get("/", (req, res) => {
 });
 
 require("./app/routes/cool-cat.routes.js")(app);
+require("./app/routes/auth.routes.js")(app);
 
 app.listen(PORT, () => {
   console.log(`express server is listening on port ${PORT}`);

@@ -26,6 +26,7 @@
     "concurrently": "^4.0.1",
     "express": "^4.16.3",
     "i": "^0.3.6",
+    "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.3.1"
   },
   "devDependencies": {
